@@ -4,11 +4,13 @@ import { Theme } from '../../components/Theme';
 
 export const People = () => {
 
-function makeRequest(urlParam) {
-    return fetch(`https://swapi.dev/api/${urlParam}`) 
-} 
-
-
+  fetch(`https://swapi.dev/api/people`) 
+      .then(res => res.json())
+      .then(res => {
+         console.log(res)         
+      
+      })
+  
   return(
     <Theme>
       <C.Container>

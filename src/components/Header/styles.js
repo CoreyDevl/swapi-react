@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   }
 
-  span{
+  #navbar{
     border-radius: 10px;
     margin: 10px;
     padding: 5px 5px;
