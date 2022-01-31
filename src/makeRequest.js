@@ -1,5 +1,12 @@
 import React, {useState} from "react";
+
+
+let who = '';
+let pNum = '';
 const SWApiBase = 'https://swapi.dev/api/';
+const SWApiBase2 = `https://swapi.dev/api/${who}/?page=${pNum}`;
+
+
 
 //"https://swapi.dev/api/people"
 
@@ -12,20 +19,15 @@ const basicFetch = async (endpoint)=> {
   const json = await req.json();
   return json;
 }
-
+ 
 //'https://swapi.dev/api/people/?page=2'
 
 
 
 export default {
-  getNextPage: async () => {
-    return [
-      {
-        title: 'People',
-        items: await basicFetch(`people/?page=2`)
-      }
-    ]
-    },
+
+
+ 
 
   getPeople: async () => {
     return [
