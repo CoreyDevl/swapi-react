@@ -1,10 +1,8 @@
 import * as C from './styles';
 import React, { useEffect, useState } from 'react';
-//import makeRequest from '../../makeRequest';
 import { Theme } from '../../components/Theme';
 import { ListItem } from '../../components/ListItem';
- 
-import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
  
 
