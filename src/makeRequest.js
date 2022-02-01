@@ -1,17 +1,14 @@
-import React, {useState} from "react";
-
-
-let who = '';
-let pNum = '';
-const SWApiBase = 'https://swapi.dev/api/';
-const SWApiBase2 = `https://swapi.dev/api/${who}/?page=${pNum}`;
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
+ 
 
 
 //"https://swapi.dev/api/people"
+ 
 
+const SWApiBase = 'https://swapi.dev/api/';
 
-
+//const SWApiBase2 = `https://swapi.dev/api/${who}/?page=${pNum}`;
 
 
 const basicFetch = async (endpoint)=> {
@@ -26,7 +23,14 @@ const basicFetch = async (endpoint)=> {
 
 export default {
 
-
+  nextPage: async (props) => {
+    return [
+      {
+        title: 'People',
+        items: await basicFetch(`people/?page=2`)
+      }   
+    ]
+    },
  
 
   getPeople: async () => {
