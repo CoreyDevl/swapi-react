@@ -14,7 +14,7 @@ useEffect(()=>{
   axios.get(SWAPIBase)
   .then(response => {
     setStarList(response.data)
-    console.log(starList)
+     
   })
 
 }, [SWApiBase])

@@ -1,12 +1,20 @@
 import * as C from './styles';
 import React, {useState, useEffect} from 'react';
- 
+import { SpecieAnalizer } from '../SpecieAnalizer.js';
 
 
 export const ListItem = (item) => {
 
   const [isOpen, setIsOpen] = useState(false)
+  const [especies, setSpecies] = useState([]);
+   
   
+ useEffect(()=>{
+   
+   setSpecies(item.items.species)
+   console.log(especies.toString())
+ 
+ },[])
  
   return (
     <C.Container>
@@ -16,6 +24,7 @@ export const ListItem = (item) => {
  </section>
  { isOpen &&
 <div  id="allInfo">
+<p><strong>Specie:</strong></p>  
 <p><strong>Height:</strong> {item.items.height}</p>
 <p><strong>Birth Year:</strong> {item.items.birth_year}</p>
 <p><strong>Eye Color:</strong> {item.items.eye_color}</p>

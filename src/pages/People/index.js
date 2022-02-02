@@ -17,7 +17,7 @@ export const People = () => {
   const [prvPage, setPrevPage] = useState(urlParam)
   const [nxtPage, setNextPage] = useState(urlParam)
   const [counter, setCounter] = useState('')
-
+ 
   useEffect(()=>{ 
     setTimeout(()=>{
 
