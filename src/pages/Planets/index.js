@@ -19,6 +19,7 @@ export const Planets = () => {
   const [counter, setCounter] = useState('')
 
   useEffect(()=>{ 
+    setTimeout(() => {
   const loadAll = async() => {
 
     axios.get(SWAPIBase)
@@ -32,6 +33,7 @@ export const Planets = () => {
    })
   }
 loadAll();
+    },2000)
 },[SWAPIBase])
 
 
@@ -46,8 +48,12 @@ loadAll();
  }
   return(
     <Theme>
-      <C.Container>
-      <h1>Planets</h1>
+      
+     
+    <h1>Planets</h1>
+     { starList.length >0 &&
+     <C.Container>
+       
        
       <p><strong>Total:</strong> {counter}</p>
         {prvPage !== null && 
@@ -57,9 +63,9 @@ loadAll();
       <button onClick={nextPage}>next</button>
       }
         <section>
-        {starList.map((item, key, i)=>( 
-            
-           <PlanetItems key={key} items={item} /> 
+        {starList.map((item, key)=>( 
+          
+          <PlanetItems key={key} items={item} /> 
           ))}  
         </section>
         {prvPage !== null && 
@@ -68,7 +74,19 @@ loadAll();
       {nxtPage !== null && 
       <button onClick={nextPage}>next</button>
       }
-      </C.Container>
+ 
+    </C.Container>
+    }
+      
+      {starList.length <=0 &&
+    <div className="loading">
+      <h2>(  LOADING  )</h2>
+      <img  src="https://recomendacao.reedalcantara.com.br/client/config/feicon/2021/loading.gif" alt="carregando"/>
+
+    </div>
+    }
     </Theme>
+      
+     
   )
 }

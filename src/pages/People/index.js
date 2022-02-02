@@ -19,19 +19,22 @@ export const People = () => {
   const [counter, setCounter] = useState('')
 
   useEffect(()=>{ 
-  const loadAll = async() => {
+    setTimeout(()=>{
 
-    axios.get(SWAPIBase)
-    .then(list => {
-    
-    setStarList(list.data.results);
-    setNextPage(list.data.next);
-    setPrevPage(list.data.previous);
-    setCounter(list.data.count);
-      
-   })
-  }
-loadAll();
+      const loadAll = async() => {
+        
+        axios.get(SWAPIBase)
+        .then(list => {
+          
+          setStarList(list.data.results);
+          setNextPage(list.data.next);
+          setPrevPage(list.data.previous);
+          setCounter(list.data.count);
+          
+        })
+      }
+      loadAll();
+    }, 2000)
 },[SWAPIBase])
 
 
@@ -46,6 +49,7 @@ loadAll();
  }
   return(
     <Theme>
+      { starList.length >0 &&
       <C.Container>
       <h1>People</h1>
        
@@ -69,6 +73,15 @@ loadAll();
       <button onClick={nextPage}>next</button>
       }
       </C.Container>
+      }
+
+      {starList.length <=0 &&
+    <div className="loading">
+      <h2>(  LOADING  )</h2>
+      <img  src="https://recomendacao.reedalcantara.com.br/client/config/feicon/2021/loading.gif" alt="carregando"/>
+
+    </div>
+    }
     </Theme>
   )
 }

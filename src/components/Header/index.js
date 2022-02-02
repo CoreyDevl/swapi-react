@@ -10,7 +10,8 @@ export const Header = () => {
   <C.Container>
     
     <nav>
-      <Link id="navbar" to="/" >Home</Link>
+    <Link id="navbar" to="/" >Home</Link>
+      <Link id="navbar" to="/people" >People</Link>
       <Link id="navbar" to="/planets">Planets</Link> 
       <Link id="navbar" to="/films">Films</Link>
       <Link id="navbar" to="/species">Species</Link>
